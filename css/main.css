@@ -1,0 +1,159 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+body {
+    font-size: 1.6rem;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    background-color: #ddd;
+}
+.header {
+    background-color: steelblue;
+}
+.container {
+    max-width: 140rem;
+    width: 95%;
+    margin: 0 auto;
+}
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__logo {
+    color: white;
+    text-decoration: none;
+    font-size: 4rem;
+    font-weight: 900;
+}
+.header-profile {
+    display: flex;
+    align-items: center;
+}
+.header-profile__text {
+    margin-right: 2rem;
+    font-weight: 700;
+}
+.header-profile__text span {
+    color: white;
+    text-decoration: underline;
+}
+.header-profile__logout {
+    display: block;
+    padding: 1rem 2rem;
+    color: white;
+    text-decoration: none;
+    background-color: rgb(146, 18, 18);
+}
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10rem;
+    margin-top: 10rem;
+}
+.option {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 4rem;
+    text-decoration: none;
+    color: #262626;
+    cursor: pointer;
+    transition: transform .2s ease-in-out;
+}
+.option:hover {
+    transform: scale(1.02);
+}
+.option__title {
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+}
+.option__icon {
+    font-size: 20rem;
+    display: block;
+    text-align: center;
+}
+.atras {
+    position: absolute;
+    display: block;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    font-weight: 900;
+    padding: 2rem 4rem;
+    bottom: 10rem;
+    left: 4rem;
+}
+.contenedor-tabla {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+table {
+    background-color: white;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 1rem 4rem;
+    text-align: center;
+}
+
+.addBtn {
+    display: block;
+    background-color: steelblue;
+    color: white;
+    font-weight: 900;
+    width: 20rem;
+    text-align: center;
+    padding: 2rem 0;
+    margin: 0 auto;
+    margin-top: 4rem;
+}
+.form-agregar {
+    margin: 0 auto;
+    background-color: white;
+    width: 60rem;
+    padding: 2rem 4rem;
+    margin-top: 4rem;
+    border-radius: 1rem;
+}
+.form-agregar__title {
+    text-align: center;
+    font-weight: 900;
+    font-size: 3rem;
+}
+.form-agregar__label {
+    display: block;
+}
+.form-agregar__field {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #444;
+}
+.form-agregar__btn {
+    display: block;
+    background-color: steelblue;
+    color: white;
+    font-weight: 900;
+    width: 20rem;
+    text-align: center;
+    padding: 2rem 0;
+    margin: 0 auto;
+    outline: none;
+    border: none;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+.form-agregar__btn:hover {
+    background-color: rgb(88, 145, 190);
+}

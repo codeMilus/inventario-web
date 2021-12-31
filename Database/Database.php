@@ -1,11 +1,15 @@
 <?php
-    $host = "localhost";
-    $user = "root";
-    $pass = "";
-    $dbname = "project";
-    $conn = new mysqli($host , $user, $pass, $dbname);
-    mysqli_query($conn , "SET character_set_result=utf8");
-    if($conn->connect_error){
-        die("Database Error : " . $conn->connect_error);
-    }
+
+$link = 'mysql:host=localhost;dbname=esoto';
+$user = 'root';
+$pass = '';
+
+try {
+    
+    $pdo = new PDO($link, $user, $pass);
+
+} catch (PDOException $e) {
+    print "Error: " . $e->getMessage();
+}
+
 ?>

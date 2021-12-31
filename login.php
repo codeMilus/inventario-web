@@ -1,29 +1,37 @@
 <?php
-    if(trim($_POST['username'])== null|| trim($_POST['password']) == null){
-        echo "<script>alert('Por favor diligencia los campos correspondientes')</script>";
-        header("Refresh:0 , url =  index.html");
-        exit();
 
-    }
-    else{
-         require_once "./Database/Database.php";
-         $username = mysqli_real_escape_string($conn,$_POST['username']);
-         $password = mysqli_real_escape_string($conn,md5($_POST['password']));
-         $sql = "SELECT username,password FROM user WHERE username ='". $username ."' and password = '".$password."'";
-         $query = mysqli_query($conn,$sql);
-         $result = mysqli_fetch_array($query , MYSQLI_ASSOC);
-         if(!$result){
-             echo "<script>alert('Usuario o Contraseña Inválida')</script>";
-             header("Refresh:0 , url = logout.php");
-             exit();
+if(trim($_POST['username'])== null|| trim($_POST['password']) == null) {
 
-         }
-         else{
-             session_start();
-             $_SESSION['username'] = $result['username'];
-             header("Location: list.php");
-             session_write_close();
-         }
-    }
-    mysqli_close($conn);
+    header("Refresh:0 , url =  index.html");
+    exit();
+
+} else {
+
+    require_once "./Database/Database.php";
+
+    if (isset($_POST['username']) && isset($_POST['password'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        $sql = "SELECT * FROM usuarios WHERE usuario = ? AND pass = ?";
+        
+        $query = $pdo->prepare($sql);
+        $query->execute(array($username, $password));
+
+        $resultado = $query->fetch();
+
+        if (!$resultado) {
+            echo "<script>alert('Datos incorrectos')</script>";
+            header("Refresh:0 , url = logout.php");
+            exit();
+        } else {
+            session_start();
+            $_SESSION['username'] = $resultado["usuario"];
+            var_dump($_SESSION['username']);
+            header("Location: main.php");
+        }   
+    } 
+
+}
+
 ?>
